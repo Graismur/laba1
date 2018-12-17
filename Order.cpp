@@ -1,26 +1,26 @@
-#include "Order.hpp"
+Ôªø#include "Order.hpp"
 
 Order::Order(const std::string number_payer, const std::string number_getter, int sum):
-number_payer(number_payer), number_getter(number_getter),sum(sum){ std::cout << "\n ÓÌÒÚÛÍÚÓ Order\n";}
-Order::Order(const Order& o):number_payer(o.number_payer), number_getter(o.number_getter),sum(o.sum){ std::cout << "\n ÓÌÒÚÛÍÚÓ ÍÓÔËÓ‚‡ÌËˇ Order\n";}
+number_payer(number_payer), number_getter(number_getter),sum(sum){ std::cout << "\n–ö–æ–Ω—Å—Ç—Ä—É–∫—Ç–æ—Ä Order\n";}
+Order::Order(const Order& o):number_payer(o.number_payer), number_getter(o.number_getter),sum(o.sum){ std::cout << "\n–ö–æ–Ω—Å—Ç—Ä—É–∫—Ç–æ—Ä –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è Order\n";}
 Order::~Order(){}
-/*„ÂÚÚÂ˚ Ë ÒÂÚÚÂ˚ ‰Îˇ number_payer*/
+/*–≥–µ—Ç—Ç–µ—Ä—ã –∏ —Å–µ—Ç—Ç–µ—Ä—ã –¥–ª—è number_payer*/
 std::string& Order::NumberPayer() {return number_payer; }
-/*„ÂÚÚÂ˚ Ë ÒÂÚÚÂ˚ ‰Îˇ number_getter*/
+/*–≥–µ—Ç—Ç–µ—Ä—ã –∏ —Å–µ—Ç—Ç–µ—Ä—ã –¥–ª—è number_getter*/
 std::string& Order::NumberGetter() {return number_getter; }
-/*„ÂÚÚÂ˚ Ë ÒÂÚÚÂ˚ ‰Îˇ sum*/
+/*–≥–µ—Ç—Ç–µ—Ä—ã –∏ —Å–µ—Ç—Ç–µ—Ä—ã –¥–ª—è sum*/
 int& Order::Sum(){return sum; }
 
 std::istream& operator >>(std::istream& in, Order& o){
-	if(!(in >> o.number_payer >> o.number_getter >> o.sum)){//ÂÒÎË ÌÂÍÓÂÍÚÌ˚È ‚‚Ó‰, ‚˚·Ë‚‡ÂÏ ËÒÍÎ˛˜ÂÌËÂ
-		throw Exception("ÕÂÍÓÂÍÚÌ˚È ‚‚Ó‰");
+	if(!(in >> o.number_payer >> o.number_getter >> o.sum)){//–µ—Å–ª–∏ –Ω–µ–∫–æ—Ä—Ä–µ–∫—Ç–Ω—ã–π –≤–≤–æ–¥, –≤—ã–±–∏–≤–∞–µ–º –∏—Å–∫–ª—é—á–µ–Ω–∏–µ
+		throw Exception("–ù–µ–∫–æ—Ä—Ä–µ–∫—Ç–Ω—ã–π –≤–≤–æ–¥");
 	}
 	return in;
 }
 std::ostream& operator <<(std::ostream& out, const Order& o){
-	out << "\n–‡Ò˜∏ÚÌ˚È Ò˜∏Ú Ì‡ÎÓ„ÓÔÎ‡ÚÂÎ¸˘ËÍ‡: " << o.number_payer
-		 << "\n–‡Ò˜∏ÚÌ˚È Ò˜∏Ú ÔÓÎÛ˜‡ÚÂÎˇ: " << o.number_getter
-		 << "\n—ÛÏÏ‡: " <<o.sum;
+	out << "\n–†–∞—Å—á—ë—Ç–Ω—ã–π —Å—á—ë—Ç –Ω–∞–ª–æ–≥–æ–ø–ª–∞—Ç–µ–ª—å—â–∏–∫–∞: " << o.number_payer
+		 << "\n–†–∞—Å—á—ë—Ç–Ω—ã–π —Å—á—ë—Ç –ø–æ–ª—É—á–∞—Ç–µ–ª—è: " << o.number_getter
+		 << "\n–°—É–º–º–∞: " <<o.sum;
     return out;
 }
 
