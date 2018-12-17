@@ -1,26 +1,26 @@
-#pragma once
+ï»¿#pragma once
 #include <string>
 #include <iostream>
 #include "Exception.hpp"
 
 class Order{
-	std::string number_payer;//ðàñ÷¸òíûé ñ÷¸ò íàëîãîïëàòåëüùèêà
-	std::string number_getter;//ðàñ÷¸òíûé ñ÷¸ò ïîëó÷àòåëÿ
-	int sum;//ïåðå÷èñëÿåìàÿ ñóììà
+	std::string number_payer;//Ñ€Ð°ÑÑ‡Ñ‘Ñ‚Ð½Ñ‹Ð¹ ÑÑ‡Ñ‘Ñ‚ Ð½Ð°Ð»Ð¾Ð³Ð¾Ð¿Ð»Ð°Ñ‚ÐµÐ»ÑŒÑ‰Ð¸ÐºÐ°
+	std::string number_getter;//Ñ€Ð°ÑÑ‡Ñ‘Ñ‚Ð½Ñ‹Ð¹ ÑÑ‡Ñ‘Ñ‚ Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ÐµÐ»Ñ
+	int sum;//Ð¿ÐµÑ€ÐµÑ‡Ð¸ÑÐ»ÑÐµÐ¼Ð°Ñ ÑÑƒÐ¼Ð¼Ð°
 public:
 	Order(const std::string number_payer = "", const std::string number_getter = "", int sum = 0);
 	Order(const Order& o);
 	~Order();
-	/*ãåòòåðû è ñåòòåðû äëÿ number_payer*/
+	/*Ð³ÐµÑ‚Ñ‚ÐµÑ€Ñ‹ Ð¸ ÑÐµÑ‚Ñ‚ÐµÑ€Ñ‹ Ð´Ð»Ñ number_payer*/
 	std::string& NumberPayer();
-	/*ãåòòåðû è ñåòòåðû äëÿ number_getter*/
+	/*Ð³ÐµÑ‚Ñ‚ÐµÑ€Ñ‹ Ð¸ ÑÐµÑ‚Ñ‚ÐµÑ€Ñ‹ Ð´Ð»Ñ number_getter*/
 	std::string& NumberGetter();
-	/*ãåòòåðû è ñåòòåðû äëÿ sum*/
+	/*Ð³ÐµÑ‚Ñ‚ÐµÑ€Ñ‹ Ð¸ ÑÐµÑ‚Ñ‚ÐµÑ€Ñ‹ Ð´Ð»Ñ sum*/
 	int& Sum();
-	/*îïåðàòîðû ââîäà è âûâîäà*/
+	/*Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ñ‹ Ð²Ð²Ð¾Ð´Ð° Ð¸ Ð²Ñ‹Ð²Ð¾Ð´Ð°*/
 	friend std::istream& operator >>(std::istream& in, Order& o);
 	friend std::ostream& operator <<(std::ostream& out, const Order& o);
-	Order& operator =(const Order& o);//îïèðàòîð ïðèñâàèâàíèÿ
+	Order& operator =(const Order& o);//Ð¾Ð¿Ð¸Ñ€Ð°Ñ‚Ð¾Ñ€ Ð¿Ñ€Ð¸ÑÐ²Ð°Ð¸Ð²Ð°Ð½Ð¸Ñ
 	
 };
 
