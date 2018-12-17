@@ -11,11 +11,11 @@ public:
 	Array();
 	~Array();
 	void Add(const T & sign);//добавление в конец массива
-	T & operator[](unsigned index);//получение элемента по индексу
-	unsigned Size();//размер
-	void Remove(unsigned index);//удаление
-	void Clear();//очищаение массива
-	void Sort(bool (*cmp)(T& a, T& b));//сортировка
+	T & operator[](unsigned index);
+	unsigned Size();
+	void Remove(unsigned index);
+	void Clear();
+	void Sort(bool (*cmp)(T& a, T& b));
 	void PrintBy(const std::string& value, bool (*cmp)(T& a, const std::string& b));//поиск
 };
 
@@ -92,7 +92,7 @@ void Array<T>::Remove(unsigned index){//удаление элемента
 	catch(...){
 		throw Exception("Ошибка выделения памяти");
 	}
-	//копируем в буфер, ропуская не нужный
+	//копируем в буфер, пропуская не нужный
 	for(unsigned i = 0; i < _size; ++i){
 		if(i != index){
 			temp[i] = data[i];
