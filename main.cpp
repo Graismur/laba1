@@ -1,45 +1,45 @@
-#include "Order.hpp"
+п»ї#include "Order.hpp"
 #include <iostream>
 #include "Array.h"
 
 using namespace std;
 
-bool ccmp(Order& a, Order& b){//компаратор для сортировки
+bool ccmp(Order& a, Order& b){//РєРѕРјРїР°СЂР°С‚РѕСЂ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё
 		return a.NumberPayer() > b.NumberPayer();
 }
-bool fcmp(Order& a, const std::string& b){//компаратор для сортировки
+bool fcmp(Order& a, const std::string& b){//РєРѕРјРїР°СЂР°С‚РѕСЂ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё
 		return a.NumberPayer() == b;
 }
 
 int main(){
 	setlocale(LC_ALL, "");
-	int cnt = 8; //количество счетов
+	int cnt = 8; //РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‡РµС‚РѕРІ
 	Order tmp;
 	Array<Order> data;
 	int checker;
-	//меню
+	//РјРµРЅСЋ
 	while(true){
-		cout << "\n1. Ввод\n2. Поиск\n";
-		if(!(cin >> checker)){//если некорректный ввод, то пропускаем всё
+		cout << "\n1. Р’РІРѕРґ\n2. РџРѕРёСЃРє\n";
+		if(!(cin >> checker)){//РµСЃР»Рё РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ, С‚Рѕ РїСЂРѕРїСѓСЃРєР°РµРј РІСЃС‘
 		 continue;
 		}  
 		if(checker == 1){
-			//считываем данные о поездах
-			cout << "[№ плательщика] [№ получателя] [сумма]\n";
+			//СЃС‡РёС‚С‹РІР°РµРј РґР°РЅРЅС‹Рµ Рѕ РїРѕРµР·РґР°С…
+			cout << "[в„– РїР»Р°С‚РµР»СЊС‰РёРєР°] [в„– РїРѕР»СѓС‡Р°С‚РµР»СЏ] [СЃСѓРјРјР°]\n";
 			for(int i =0; i < cnt; ++i){
 				try{
 					cin >> tmp;
 					data.Add(tmp);
-				}	  //обрабатываем исключение
+				}	  //РѕР±СЂР°Р±Р°С‚С‹РІР°РµРј РёСЃРєР»СЋС‡РµРЅРёРµ
 				catch(const Exception& e){
 					cout << "\n" << e.what() << "\n";
-					--i;//откатываем i назад для повторного ввода
+					--i;//РѕС‚РєР°С‚С‹РІР°РµРј i РЅР°Р·Р°Рґ РґР»СЏ РїРѕРІС‚РѕСЂРЅРѕРіРѕ РІРІРѕРґР°
 				}
 			}
 			data.Sort(ccmp);
 		}	
 		else if(checker == 2){
-			cout << "Введите номер: ";
+			cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ: ";
 			string val;
 			cin >> val;
 			data.PrintBy(val, fcmp);
