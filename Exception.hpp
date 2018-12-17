@@ -1,11 +1,11 @@
-#pragma once
+п»ї#pragma once
 #include <string>
 
 class Exception{
-	std::string message;//сообщение исклюения
+	std::string message;//СЃРѕРѕР±С‰РµРЅРёРµ РёСЃРєР»СЋРµРЅРёСЏ
 public:
 	Exception(const std::string& message = "Exception");
 	Exception(const Exception& e);
 	~Exception();
-	const std::string& what()const;//выводим сообщение исключения
+	const std::string& what()const;//РІС‹РІРѕРґРёРј СЃРѕРѕР±С‰РµРЅРёРµ РёСЃРєР»СЋС‡РµРЅРёСЏ
 };
