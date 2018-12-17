@@ -1,7 +1,7 @@
-#pragma once
+п»ї#pragma once
 #include "Order.hpp"
 
-//массив с динамическим добавлением и удалением элементов
+//РјР°СЃСЃРёРІ СЃ РґРёРЅР°РјРёС‡РµСЃРєРёРј РґРѕР±Р°РІР»РµРЅРёРµРј Рё СѓРґР°Р»РµРЅРёРµРј СЌР»РµРјРµРЅС‚РѕРІ
 template<typename T>
 class Array{
 private:
@@ -10,13 +10,13 @@ private:
 public:
 	Array();
 	~Array();
-	void Add(const T & sign);//добавление в конец массива
-	T & operator[](unsigned index);//получение элемента по индексу
-	unsigned Size();//размер
-	void Remove(unsigned index);//удаление
-	void Clear();//очищаение массива
-	void Sort(bool (*cmp)(T& a, T& b));//сортировка
-	void PrintBy(const std::string& value, bool (*cmp)(T& a, const std::string& b));//поиск
+	void Add(const T & sign);//РґРѕР±Р°РІР»РµРЅРёРµ РІ РєРѕРЅРµС† РјР°СЃСЃРёРІР°
+	T & operator[](unsigned index);//РїРѕР»СѓС‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ
+	unsigned Size();//СЂР°Р·РјРµСЂ
+	void Remove(unsigned index);//СѓРґР°Р»РµРЅРёРµ
+	void Clear();//РѕС‡РёС‰Р°РµРЅРёРµ РјР°СЃСЃРёРІР°
+	void Sort(bool (*cmp)(T& a, T& b));//СЃРѕСЂС‚РёСЂРѕРІРєР°
+	void PrintBy(const std::string& value, bool (*cmp)(T& a, const std::string& b));//РїРѕРёСЃРє
 };
 
 template<typename T>
@@ -28,7 +28,7 @@ void Array<T>::PrintBy(const std::string& value, bool (*cmp)(T& a, const std::st
 		   flag = !flag;
 		}
    }
-   if(flag) std::cout << "Пусто";
+   if(flag) std::cout << "РџСѓСЃС‚Рѕ";
 }
 
 template<typename T>
@@ -48,57 +48,57 @@ void Array<T>::Sort(bool (*cmp)( T& a, T& b)){
 }
 
  template<typename T>
-Array<T>::Array():data(nullptr), _size(0){ cout << "\nконструктор Array";}
+Array<T>::Array():data(nullptr), _size(0){ cout << "\nРєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Array";}
  template<typename T>
-Array<T>::~Array(){ delete[] data; cout << "\nдеструктор Array"; }
+Array<T>::~Array(){ delete[] data; cout << "\nРґРµСЃС‚СЂСѓРєС‚РѕСЂ Array"; }
 
 template<typename T>
-void Array<T>::Add(const T & sign){//добавление в конец массива
-	T *temp;//буфер
-	try{//обрабатываем исключение
+void Array<T>::Add(const T & sign){//РґРѕР±Р°РІР»РµРЅРёРµ РІ РєРѕРЅРµС† РјР°СЃСЃРёРІР°
+	T *temp;//Р±СѓС„РµСЂ
+	try{//РѕР±СЂР°Р±Р°С‚С‹РІР°РµРј РёСЃРєР»СЋС‡РµРЅРёРµ
 	   temp = new T[_size + 1];
 	}
 	catch(...){
-		throw Exception("Ошибка выделения памяти");
+		throw Exception("РћС€РёР±РєР° РІС‹РґРµР»РµРЅРёСЏ РїР°РјСЏС‚Рё");
 	}
-	//копируем в буфер
+	//РєРѕРїРёСЂСѓРµРј РІ Р±СѓС„РµСЂ
 	for(unsigned i = 0; i < _size; ++i){
 		temp[i] = data[i];
 	}
 	temp[_size] = sign;
-	//копируем в поле
+	//РєРѕРїРёСЂСѓРµРј РІ РїРѕР»Рµ
 	delete[] data;
 	data = temp;
 	++_size;
 }
 
 template<typename T>
-T & Array<T>::operator[](unsigned index){//получение элемента по индексу
+T & Array<T>::operator[](unsigned index){//РїРѕР»СѓС‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ
 	 if(index >= _size){
-		throw Exception("Индекс вне границ массива");
+		throw Exception("РРЅРґРµРєСЃ РІРЅРµ РіСЂР°РЅРёС† РјР°СЃСЃРёРІР°");
 	 }
 	 return data[index];
 }
 
 template<typename T>
-void Array<T>::Remove(unsigned index){//удаление элемента
+void Array<T>::Remove(unsigned index){//СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
 	if(index >= _size){
-		throw Exception("Индекс вне границ массива");
+		throw Exception("РРЅРґРµРєСЃ РІРЅРµ РіСЂР°РЅРёС† РјР°СЃСЃРёРІР°");
 	}
-	T *temp;//буфер
-	try{//обрабатываем исключение
+	T *temp;//Р±СѓС„РµСЂ
+	try{//РѕР±СЂР°Р±Р°С‚С‹РІР°РµРј РёСЃРєР»СЋС‡РµРЅРёРµ
 	   temp = new T[_size + 1];
 	}
 	catch(...){
-		throw Exception("Ошибка выделения памяти");
+		throw Exception("РћС€РёР±РєР° РІС‹РґРµР»РµРЅРёСЏ РїР°РјСЏС‚Рё");
 	}
-	//копируем в буфер, ропуская не нужный
+	//РєРѕРїРёСЂСѓРµРј РІ Р±СѓС„РµСЂ, СЂРѕРїСѓСЃРєР°СЏ РЅРµ РЅСѓР¶РЅС‹Р№
 	for(unsigned i = 0; i < _size; ++i){
 		if(i != index){
 			temp[i] = data[i];
 		}
 	}
-	//копируем в поле
+	//РєРѕРїРёСЂСѓРµРј РІ РїРѕР»Рµ
 	delete[] data;
 	data = temp;
 	--_size;
